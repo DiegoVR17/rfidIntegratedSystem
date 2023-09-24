@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Rfid_integrated_system_app" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/orchid</item>
+    </style>
+
+    <style name="Theme.Rfid_integrated_system_app" parent="Base.Theme.Rfid_integrated_system_app" />
+
+    <style name="Theme.APISplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/orchid</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/rfid_icon</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Rfid_integrated_system_app</item>
+    </style>
+</resources>

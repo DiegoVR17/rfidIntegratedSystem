@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1038610850150",
+    "project_id": "rfidintegratedsystemapp",
+    "storage_bucket": "rfidintegratedsystemapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038610850150:android:033451a22f4c88ac29a8a7",
+        "android_client_info": {
+          "package_name": "com.example.rfid_integrated_system_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA88XxzitNlYvnPSRqW9kVIKoYurdOtV5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

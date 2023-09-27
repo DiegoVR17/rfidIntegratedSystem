@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">rfid_integrated_system_app</string>
+    <string name="app_name">RFID SYSTEM</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="buttonSave">Guardar</string>
@@ -7,6 +7,12 @@
     <string name="buttonUpdate">Actualizar</string>
     <string name="ID">ID</string>
     <string name="CargoRol">Cargo o rol\n</string>
+    <string name="Login">Sign In</string>
+    <string name="password">Digite su contraseña</string>
+    <string name="passwordRep">Repita su contraseña</string>
+    <string name="email">Digite su e-mail</string>
+    <string name="Register">Sign Up</string>
+
     <string-array name="cargos">
         <item>Profesor</item>
         <item>Estudiante</item>

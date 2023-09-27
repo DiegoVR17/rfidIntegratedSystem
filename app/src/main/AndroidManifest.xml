@@ -6,14 +6,17 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/rfid_icon"
+        android:icon="@drawable/icon_rfid"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/rfid_icon"
+        android:roundIcon="@drawable/icon_rfid"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rfid_integrated_system_app"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.APISplashScreen">
             <intent-filter>
@@ -22,6 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

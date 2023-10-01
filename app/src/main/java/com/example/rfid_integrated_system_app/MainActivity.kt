@@ -2,22 +2,20 @@ package com.example.rfid_integrated_system_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rfid_integrated_system_app.databinding.ActivityMainBinding
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
 
     private lateinit var mainBinding: ActivityMainBinding
+    private lateinit var mainViewModel: MainViewModel
     private var listUser = mutableListOf<User>()
     private var adapter: UserAdapter? = null
     private lateinit var firebaseDataBase: FirebaseDatabase
@@ -38,27 +36,86 @@ class MainActivity : AppCompatActivity() {
         databaseReference = firebaseDataBase.getReference("UsersData")
         databaseReferenceID = firebaseDataBase.getReference("UsersDataAux")
 
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+
+        val firstNameObserver = Observer<String>{firstName ->
+            mainBinding.editTextFirstName.setText(firstName)
+        }
+
+        mainViewModel.firstName.observe(this,firstNameObserver)
+
+        val lastNameObserver = Observer<String>{lastName ->
+            mainBinding.editTextLastName.setText(lastName)
+        }
+
+        mainViewModel.lastName.observe(this,lastNameObserver)
+
+        val idObserver = Observer<String>{id ->
+            mainBinding.textViewIDUser.text = id
+        }
+
+        mainViewModel.id.observe(this,idObserver)
+
+        val errorMsgObserver = Observer<String>{errorMsg ->
+            Snackbar.make(mainBinding.root,errorMsg, Snackbar.LENGTH_INDEFINITE)
+                .setAction("Continuar"){}
+                .show()
+        }
+
+        mainViewModel.errorMsg.observe(this,errorMsgObserver)
+
+
         val cargoRol = resources.getStringArray(R.array.cargos)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, cargoRol)
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         mainBinding.spinnerCargoRol.adapter = adapter
 
-        getData()
+        mainViewModel.getData(databaseReference,databaseReferenceID)
+
+
+        //getData()
 
 
         mainBinding.buttonSave.setOnClickListener {
-            saveData()
+            mainViewModel.saveData(mainBinding.editTextFirstName.text.toString(),
+                mainBinding.editTextLastName.text.toString(),
+                mainBinding.textViewIDUser.text.toString(),
+                mainBinding.spinnerCargoRol.selectedItem.toString(),
+                databaseReference)
         }
         mainBinding.buttonUpdate.setOnClickListener {
-            updateData()
+            mainViewModel.updateData(mainBinding.editTextFirstName.text.toString(),
+                mainBinding.editTextLastName.text.toString(),
+                mainBinding.spinnerCargoRol.selectedItem.toString(),databaseReference)
         }
         mainBinding.buttonClear.setOnClickListener {
-            clear()
+            mainViewModel.clear()
         }
 
     }
 
+    fun initRecyclerView() {
+        adapter = UserAdapter()
+        mainBinding.apply {
+            recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+            recyclerView.adapter = adapter
+        }
+
+        adapter?.setOnClicView {
+            //Toast.makeText(this, "Click Action View ${it.id}", Toast.LENGTH_SHORT).show()
+            mainBinding.editTextFirstName.setText(it.firstName.toString())
+            mainBinding.editTextLastName.setText(it.lastName.toString())
+            selectedId = it.id
+        }
+
+        adapter?.setOnClicViewDelete {
+            selectedId = it.id
+            databaseReference.child(selectedId.orEmpty()).removeValue()
+        }
+    }
+/*
     private fun clear() {
         mainBinding.editTextFirstName.text.clear()
         mainBinding.editTextLastName.text.clear()
@@ -166,5 +223,5 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-    }
+    }*/
 }

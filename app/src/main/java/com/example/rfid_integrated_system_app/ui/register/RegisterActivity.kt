@@ -1,14 +1,13 @@
-package com.example.rfid_integrated_system_app
+package com.example.rfid_integrated_system_app.ui.register
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.rfid_integrated_system_app.databinding.ActivityLoginBinding
 import com.example.rfid_integrated_system_app.databinding.ActivityRegisterBinding
+import com.example.rfid_integrated_system_app.ui.login.LoginActivity
 import com.google.android.material.snackbar.Snackbar
 
 class RegisterActivity : AppCompatActivity() {
@@ -24,17 +23,19 @@ class RegisterActivity : AppCompatActivity() {
 
         val banRegisterObserver = Observer<Boolean>{banRegister ->
             if (banRegister){
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }
         }
 
-        registerViewModel.banRegister.observe(this,banRegisterObserver)
+        registerViewModel.banRegister.observe(this){
+            onBackPressedDispatcher.onBackPressed()
+        }
 
 
-        val errorMsgObserver = Observer<String>{errorMsg ->
-            Snackbar.make(view,errorMsg, Snackbar.LENGTH_INDEFINITE)
+        val errorMsgObserver = Observer<String?>{errorMsg ->
+            Snackbar.make(view, errorMsg.toString(), Snackbar.LENGTH_INDEFINITE)
                 .setAction("Continuar"){}
                 .show()
         }

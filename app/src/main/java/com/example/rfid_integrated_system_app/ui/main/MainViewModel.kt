@@ -1,11 +1,11 @@
-package com.example.rfid_integrated_system_app
+package com.example.rfid_integrated_system_app.ui.main
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rfid_integrated_system_app.User
+import com.example.rfid_integrated_system_app.UserAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference

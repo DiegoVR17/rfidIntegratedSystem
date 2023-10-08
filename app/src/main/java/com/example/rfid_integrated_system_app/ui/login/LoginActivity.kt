@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.rfid_integrated_system_app.ui.navigation.NavigationActivity
 import com.example.rfid_integrated_system_app.ui.main.MainActivity
 import com.example.rfid_integrated_system_app.ui.register.RegisterActivity
 import com.example.rfid_integrated_system_app.databinding.ActivityLoginBinding
@@ -27,12 +28,11 @@ class LoginActivity : AppCompatActivity() {
 
         val banLoginObserver = Observer<Boolean>{banLogin ->
             if (banLogin){
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, NavigationActivity::class.java)
                 startActivity(intent)
                 finish()
             }
         }
-
         loginViewModel.banLogin.observe(this,banLoginObserver)
 
 

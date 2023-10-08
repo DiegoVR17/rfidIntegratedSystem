@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_active_user">
+    <fragment
+        android:id="@+id/navigation_active_user"
+        android:name="com.example.rfid_integrated_system_app.ui.active_user.ActiveUserFragment"
+        android:label="@string/active_user"
+        tools:layout="@layout/fragment_active_user" />
+    <fragment
+        android:id="@+id/navigation_registered_user"
+        android:name="com.example.rfid_integrated_system_app.ui.registered_user.RegisteredUserFragment"
+        android:label="@string/registered_user"
+        tools:layout="@layout/fragment_registered_user" />
+    <fragment
+        android:id="@+id/navigation_door_control"
+        android:name="com.example.rfid_integrated_system_app.ui.door_control.DoorControlFragment"
+        android:label="@string/door_control"
+        tools:layout="@layout/fragment_door_control" />
+</navigation>

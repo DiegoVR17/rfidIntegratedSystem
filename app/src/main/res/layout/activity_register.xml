@@ -10,7 +10,7 @@
         android:id="@+id/ImageViewRegister"
         android:layout_width="191dp"
         android:layout_height="188dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:contentDescription="@null"
         android:src="@drawable/register_icon"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,16 +74,48 @@
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <LinearLayout
+        android:id="@+id/LinearLayoutCargo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutRepPassword">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/CargoRol"
+            android:textColor="@color/whitesmoke"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner_cargoRol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:entries="@array/cargos"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="30dp"
         android:text="@string/Register"
         android:layout_weight="1"
         android:layout_marginStart="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutRepPassword"/>
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutCargo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

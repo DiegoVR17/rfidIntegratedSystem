@@ -43,7 +43,7 @@ class LoginViewModel: ViewModel() {
                 result.let { resourceRemote ->
                     when(resourceRemote){
                         is ResourceRemote.Success -> {
-                            _errorMsg.postValue("Bienvenido: ${email}")
+                            _sucessMsg.postValue("Bienvenido: ${email}")
                             banLogin.postValue(true)
                         }
                         is ResourceRemote.Error -> {

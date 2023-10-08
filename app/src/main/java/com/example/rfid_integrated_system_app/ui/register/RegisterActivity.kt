@@ -21,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
 
         registerViewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
 
-        val banRegisterObserver = Observer<Boolean>{banRegister ->
+       val banRegisterObserver = Observer<Boolean>{banRegister ->
             if (banRegister){
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
@@ -29,10 +29,12 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        registerViewModel.banRegister.observe(this){
+        registerViewModel.banRegister.observe(this,banRegisterObserver)
+
+       /* registerViewModel.banRegister.observe(this){
             onBackPressedDispatcher.onBackPressed()
         }
-
+*/
 
         val errorMsgObserver = Observer<String?>{errorMsg ->
             Snackbar.make(view, errorMsg.toString(), Snackbar.LENGTH_INDEFINITE)

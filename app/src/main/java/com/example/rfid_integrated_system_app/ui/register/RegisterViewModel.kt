@@ -47,15 +47,15 @@ class RegisterViewModel: ViewModel(){
                 result.let { resourceRemote ->
                     when(resourceRemote){
                         is ResourceRemote.Success -> {
-                            _errorMsg.postValue("Usuario creado exitosamente")
+                            _sucessMsg.postValue("Usuario creado exitosamente")
                             banRegister.postValue(true)
                         }
                         is ResourceRemote.Error -> {
                             var msg = result.message
                             _errorMsg.postValue(msg)
                             when(msg){
-                                "msginglesUserAlready" -> "msgespañol"
-                                "msginglesNetwork" -> "msgespañol"
+                                "The email address is already in use by another account" -> "El email ya está en uso"
+                                "A network error (such as timeout, interrupted connection or unreachable host) has occurred." -> "Revise su conexión a internet"
                             }
                         }
                         else ->{

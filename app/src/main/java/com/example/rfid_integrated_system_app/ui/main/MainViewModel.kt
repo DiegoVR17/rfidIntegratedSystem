@@ -44,8 +44,7 @@ class MainViewModel: ViewModel()  {
         firstName: String,
         lastName: String,
         cargoRol: String,
-        databaseReference: DatabaseReference
-    ) {
+        databaseReference: DatabaseReference) {
 
         if (firstName.isNotEmpty() && lastName.isNotEmpty()){
             val user = User(firstName = firstName, lastName = lastName, cargoRol = cargoRol)

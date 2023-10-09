@@ -36,8 +36,6 @@ class LoginViewModel: ViewModel() {
             _errorMsg.value = "El email está escrito en un formato incorrecto"
         }
         else{
-            /*_sucessMsg.value = "Bienvenido: ${email}"
-            banLogin.value = true*/
             viewModelScope.launch {
                 val result = userRepository.loginUser(email,password)
                 result.let { resourceRemote ->
@@ -48,19 +46,20 @@ class LoginViewModel: ViewModel() {
                         }
                         is ResourceRemote.Error -> {
                             var msg = result.message
-                            _errorMsg.postValue(msg)
                             when(msg){
-                                "msginglesUserAlready" -> "msgespañol"
-                                "msginglesNetwork" -> "msgespañol"
+                                "The email address is already in use by another account." -> msg = "El email ya está en uso"
+                                "A network error (such as timeout, interrupted connection or unreachable host) has occurred." -> msg = "Revise su conexión a internet"
+                                "An internal error has occurred. [ INVALID_LOGIN_CREDENTIALS ]" -> msg = "Correo electrónico o contraseña incorrecta"
                             }
+                            _errorMsg.postValue(msg)
                         }
                         else ->{
-
+                            //don´t use
                         }
                     }
                 }
             }
         }
 
-        }
+    }
 }

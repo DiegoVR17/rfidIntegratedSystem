@@ -27,4 +27,7 @@
     <string name="active_user">Usuarios activos</string>
     <string name="registered_user">Usuarios registrados</string>
     <string name="door_control">Control de acceso</string>
+    <string name="add_user">añadir</string>
+    <string name="buttonAddUser">Añadir usuario</string>
+    <string name="helper_text">*Campo Obligatorio</string>
 </resources>

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rfid_integrated_system_app.User
+import com.example.rfid_integrated_system_app.data.model.User
 import com.example.rfid_integrated_system_app.UserAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -47,7 +47,7 @@ class MainViewModel: ViewModel()  {
         databaseReference: DatabaseReference) {
 
         if (firstName.isNotEmpty() && lastName.isNotEmpty()){
-            val user = User(firstName = firstName, lastName = lastName, cargoRol = cargoRol)
+            val user = User(firstName = firstName, lastName = lastName, positionRole = cargoRol)
 
             databaseReference.child(selectedId.toString()).setValue(user)
         }
@@ -68,7 +68,7 @@ class MainViewModel: ViewModel()  {
             val user = User(
                 firstName = firstName,
                 lastName = lastName,
-                cargoRol = cargoRol
+                positionRole = cargoRol
             )
 
             databaseReference.child(ide_user).setValue(user)
@@ -106,7 +106,7 @@ class MainViewModel: ViewModel()  {
                     var lastName = ds.child("lastName").value.toString()
                     var cargoRol = ds.child("cargoRol").value.toString()
 
-                    val user = User(id = id, firstName = firstName, lastName = lastName, cargoRol = cargoRol)
+                    val user = User(id = id, firstName = firstName, lastName = lastName, positionRole = cargoRol)
                     listUser.add(user)
                 }
 

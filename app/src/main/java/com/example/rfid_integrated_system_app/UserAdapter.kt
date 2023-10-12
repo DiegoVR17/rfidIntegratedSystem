@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rfid_integrated_system_app.data.model.User
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
@@ -71,7 +72,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
             tvFirstName?.text = data.firstName
             tvLastName?.text = data.lastName
-            tvCargoRol?.text = data.cargoRol
+            tvCargoRol?.text = data.positionRole
 
             actionView?.setOnClickListener {
                 onClicView?.invoke(data)

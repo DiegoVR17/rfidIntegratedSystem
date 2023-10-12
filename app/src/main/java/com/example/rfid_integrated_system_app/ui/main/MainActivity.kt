@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rfid_integrated_system_app.R
-import com.example.rfid_integrated_system_app.User
+import com.example.rfid_integrated_system_app.data.model.User
 import com.example.rfid_integrated_system_app.UserAdapter
 import com.example.rfid_integrated_system_app.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar

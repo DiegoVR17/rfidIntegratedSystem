@@ -24,6 +24,12 @@ class AddUserFragment : Fragment() {
         addUserBinding = FragmentAddUserBinding.inflate(inflater,container,false)
         addUserviewModel = ViewModelProvider(this)[AddUserViewModel::class.java]
 
+        val idObserver = Observer<String>{id ->
+            addUserBinding.editTextID.setText(id)
+        }
+
+        addUserviewModel.id.observe(viewLifecycleOwner,idObserver)
+
 
         addUserviewModel.errorMsg.observe(viewLifecycleOwner){msg->
             error_msg(msg,addUserBinding.root)
@@ -33,6 +39,7 @@ class AddUserFragment : Fragment() {
             succes_msg(msg,addUserBinding.root)
         }
 
+        addUserviewModel.loadID()
 
         with(addUserBinding){
             buttonAddUser.setOnClickListener {

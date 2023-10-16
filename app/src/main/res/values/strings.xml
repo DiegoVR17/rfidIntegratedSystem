@@ -30,4 +30,5 @@
     <string name="add_user">añadir</string>
     <string name="buttonAddUser">Añadir usuario</string>
     <string name="helper_text">*Campo Obligatorio</string>
+    <string name="date">Fecha</string>
 </resources>

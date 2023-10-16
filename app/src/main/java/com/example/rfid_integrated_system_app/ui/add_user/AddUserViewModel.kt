@@ -21,6 +21,33 @@ class AddUserViewModel : ViewModel() {
     val banAddUser : MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
     }
+
+    val id : MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    fun loadID(){
+        viewModelScope.launch {
+            var result = userAddRepository.loadReadID()
+            result.let { resourceRemote ->
+                when(resourceRemote){
+                    is ResourceRemote.Success -> {
+                        id.postValue(result.data?.documents?.get(0)?.id)
+                    }
+                    is ResourceRemote.Error -> {
+                        var msg = result.message
+                        when(msg){
+                           "error" -> msg = "Error"
+                        }
+                        _errorMsg.postValue(msg)
+                    }
+                    else ->{
+
+                    }
+                }
+            }
+        }
+    }
     fun validateAddUserData(firstName: String, lastName: String, id: String, positionRole: String) {
         if (firstName.isEmpty() && lastName.isEmpty()){
             _errorMsg.value = "Debe escribir los datos de registro"
@@ -50,4 +77,5 @@ class AddUserViewModel : ViewModel() {
             }
         }
     }
+
 }

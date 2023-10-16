@@ -68,4 +68,20 @@ class UserAddRepository {
         }
     }
 
+    suspend fun loadReadID() : ResourceRemote<QuerySnapshot?> {
+        return try {
+            val result = db.collection("id_reader").get().await()
+            ResourceRemote.Success(data = result)
+        } catch (e: FirebaseFirestoreException){
+            Log.e("FirebaseAuthException",e.localizedMessage)
+            ResourceRemote.Error(message = e.localizedMessage)
+        } catch (e: FirebaseNetworkException){
+            Log.e("FirebaseNetworkException",e.localizedMessage)
+            ResourceRemote.Error(message = e.localizedMessage)
+        }
+        catch (e: FirebaseException){
+            Log.e("FirebaseException",e.localizedMessage)
+            ResourceRemote.Error(message = e.localizedMessage)
+        }
+    }
 }

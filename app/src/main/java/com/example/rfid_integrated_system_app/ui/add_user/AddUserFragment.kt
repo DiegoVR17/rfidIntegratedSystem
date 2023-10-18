@@ -25,7 +25,11 @@ class AddUserFragment : Fragment() {
         addUserviewModel = ViewModelProvider(this)[AddUserViewModel::class.java]
 
         val idObserver = Observer<String>{id ->
-            addUserBinding.editTextID.setText(id)
+            if (id.isNullOrEmpty()){
+                addUserBinding.editTextID.setText("0")
+                error_msg("Recargue la vista",addUserBinding.root)
+            }
+            else{addUserBinding.editTextID.setText(id)}
         }
 
         addUserviewModel.id.observe(viewLifecycleOwner,idObserver)

@@ -5,6 +5,7 @@ import com.example.rfid_integrated_system_app.data.model.User
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -70,7 +71,7 @@ class UserAddRepository {
 
     suspend fun loadReadID() : ResourceRemote<QuerySnapshot?> {
         return try {
-            val result = db.collection("id_reader").get().await()
+            val result = db.collection("id_reader").orderBy("date",Query.Direction.DESCENDING).get().await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){
             Log.e("FirebaseAuthException",e.localizedMessage)

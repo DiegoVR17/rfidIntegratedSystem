@@ -31,4 +31,5 @@
     <string name="buttonAddUser">Añadir usuario</string>
     <string name="helper_text">*Campo Obligatorio</string>
     <string name="date">Fecha</string>
+    <string name="late">Entrada</string>
 </resources>

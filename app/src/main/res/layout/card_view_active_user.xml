@@ -59,5 +59,21 @@
             android:textSize="12dp"
             android:gravity="center_horizontal"/>
 
+        <TextView
+            android:id="@+id/textViewLate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="116dp"
+            android:text="@string/late"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ImageViewPhotoUser"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDate"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:gravity="center_horizontal"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -33,7 +33,6 @@ class UserRegisteredViewModel: ViewModel()  {
             val result = userAddRepository.loadRegisteredUsers()
             result.let { resourceRemote ->
                 when(resourceRemote){
-
                     is ResourceRemote.Success -> {
                         result.data?.documents?.forEach{ document ->
                             val userRegistered = document.toObject<User>()

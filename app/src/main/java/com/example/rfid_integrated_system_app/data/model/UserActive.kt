@@ -4,5 +4,6 @@ data class UserActive (
 
     var id:String? = null,
     var date: String? = null,
+    var late: Boolean? = null,
     var photo: String? = null
 )

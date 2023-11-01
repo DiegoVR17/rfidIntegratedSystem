@@ -27,19 +27,16 @@ class ActiveUserViewModel: ViewModel()  {
             val result = userActiveRepository.loadActiveUsers()
             result.let { resourceRemote ->
                 when(resourceRemote){
-
                     is ResourceRemote.Success -> {
                         result.data?.documents?.forEach{ document ->
                             val userActive = document.toObject<UserActive>()
                             userActiveListLocal.add(userActive)
                         }
-
                         _userActiveList.postValue(userActiveListLocal)
                     }
                     is ResourceRemote.Error -> {
                         val msg = result.message
                         _errorMsg.postValue(msg)
-
                     }
                     else ->{
                         //don´t use

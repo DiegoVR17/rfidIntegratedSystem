@@ -8,6 +8,11 @@ import com.example.rfid_integrated_system_app.R
 import com.example.rfid_integrated_system_app.data.model.UserActive
 import com.example.rfid_integrated_system_app.databinding.CardViewActiveUserBinding
 import com.squareup.picasso.Picasso
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 class ActiveUserAdapter (
 
@@ -49,7 +54,11 @@ class ActiveUserAdapter (
             fun bind(userActive: UserActive?){
                 with(binding){
                     textViewIDUser.text = userActive?.id
-                    textViewDate.text = userActive?.date
+                    val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                    sdf.timeZone = TimeZone.getDefault()
+                    val date = sdf.format(Date(userActive?.date!!.toLong()*1000))
+                    textViewDate.text = date
+                    textViewLate.text = userActive?.late.toString()
                     if (userActive?.photo == null){
                         ImageViewPhotoUser.setImageResource(R.drawable.user_registered_icon)
                     }else{

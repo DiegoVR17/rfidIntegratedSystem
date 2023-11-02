@@ -15,7 +15,7 @@ class UserActiveRepository {
 
     suspend fun loadActiveUsers() : ResourceRemote<QuerySnapshot?> {
         return try {
-            val result = db.collection("id_reader").orderBy("date").get().await()
+            val result = db.collection("users_active").orderBy("date").get().await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){
             Log.e("FirebaseAuthException",e.localizedMessage)

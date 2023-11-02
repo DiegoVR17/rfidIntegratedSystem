@@ -21,7 +21,7 @@
         android:background="@color/whitesmoke"/>
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switch_door"
         android:layout_width="105dp"
         android:layout_height="45dp"
         android:layout_marginStart="164dp"

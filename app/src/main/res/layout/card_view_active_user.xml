@@ -27,13 +27,13 @@
             android:background="@color/greenyellow"/>
 
     <TextView
-        android:id="@+id/textViewIDUser"
+        android:id="@+id/textViewNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="53dp"
         android:layout_marginEnd="121dp"
-        android:text="@string/ID"
+        android:text="@string/nameUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ImageViewPhotoUser"
         app:layout_constraintTop_toTopOf="parent"
@@ -53,7 +53,7 @@
             android:text="@string/date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ImageViewPhotoUser"
-            app:layout_constraintTop_toBottomOf="@+id/textViewIDUser"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNameUser"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="12dp"

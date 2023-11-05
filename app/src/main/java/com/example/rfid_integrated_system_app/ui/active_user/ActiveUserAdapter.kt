@@ -52,7 +52,7 @@ class ActiveUserAdapter (
 
             fun bind(userActive: UserActive?){
                 with(binding){
-                    textViewIDUser.text = userActive?.id
+                    textViewNameUser.text = userActive?.userName
                     val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm:ss a")
                     sdf.timeZone = TimeZone.getTimeZone("GMT")
                     val date = sdf.format(Date(userActive?.date!!.toLong()*1000))

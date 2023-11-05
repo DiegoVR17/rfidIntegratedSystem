@@ -45,7 +45,7 @@
 
 
    <!-- <TextView
-        android:id="@+id/textViewIDUser"
+        android:id="@+id/textViewNameUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/ID"

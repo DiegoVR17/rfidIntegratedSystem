@@ -5,6 +5,7 @@
     <string name="buttonSave">Guardar</string>
     <string name="buttonClear">Resetear</string>
     <string name="buttonUpdate">Actualizar</string>
+    <string name="nameUser">nameUser</string>
     <string name="ID">ID</string>
     <string name="CargoRol">Cargo o rol\n</string>
     <string name="Login">Sign In</string>

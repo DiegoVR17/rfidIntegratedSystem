@@ -46,7 +46,8 @@ class RegisterActivity : AppCompatActivity() {
 
         registerViewModel.sucessMsg.observe(this,succesMsgObserver)
 
-        val cargoRol = resources.getStringArray(R.array.cargos)
+
+        val cargoRol = resources.getStringArray(R.array.cargos1)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, cargoRol)
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -56,7 +57,8 @@ class RegisterActivity : AppCompatActivity() {
             registerViewModel.validateRegisterData(registerBinding.EditTextEmail.text.toString(),
                 registerBinding.EditTextPassword.text.toString()
                 ,registerBinding.EditTextRepPassword.text.toString(),
-                registerBinding.spinnerCargoRol.selectedItem.toString(),)
+                registerBinding.spinnerCargoRol.selectedItem.toString(),registerBinding.TextInputEditTextFirstName.text.toString(),
+                registerBinding.TextInputEditTextLastName.text.toString())
 
         }
 

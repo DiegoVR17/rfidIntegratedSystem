@@ -1,24 +1,30 @@
 <resources>
     <string name="app_name">RFID SYSTEM</string>
-    <string name="firstName">First Name</string>
-    <string name="lastName">Last Name</string>
+    <string name="firstName">Digite su nombre</string>
+    <string name="lastName">Digite su apellido</string>
     <string name="buttonSave">Guardar</string>
     <string name="buttonClear">Resetear</string>
     <string name="buttonUpdate">Actualizar</string>
     <string name="nameUser">nameUser</string>
     <string name="ID">ID</string>
     <string name="CargoRol">Cargo o rol\n</string>
-    <string name="Login">Sign In</string>
+    <string name="Login">Ingresar</string>
     <string name="password">Digite su contraseña</string>
     <string name="passwordRep">Repita su contraseña</string>
     <string name="email">Digite su e-mail</string>
-    <string name="Register">Sign Up</string>
+    <string name="Register">Registrarse</string>
 
     <string-array name="cargos">
         <item>Profesor</item>
         <item>Estudiante</item>
+    </string-array>
+
+    <string-array name="cargos1">
+        <item>Administrador</item>
         <item>Monitor</item>
     </string-array>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_navigation">NavigationActivity</string>
@@ -26,11 +32,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="active_user">Usuarios activos</string>
-    <string name="registered_user">Usuarios registrados</string>
+    <string name="registered_user">Usuarios sistema</string>
     <string name="door_control">Control de acceso</string>
     <string name="add_user">añadir</string>
     <string name="buttonAddUser">Añadir usuario</string>
     <string name="helper_text">*Campo Obligatorio</string>
     <string name="date">Fecha</string>
     <string name="late">Entrada</string>
+    <string name="state_door">ON/OFF - PUERTA</string>
 </resources>

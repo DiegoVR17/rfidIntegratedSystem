@@ -1,5 +1,6 @@
 package com.example.rfid_integrated_system_app.ui.add_user
 
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
 import com.example.rfid_integrated_system_app.databinding.FragmentAddUserBinding
 import com.google.android.material.snackbar.Snackbar
 
 class AddUserFragment : Fragment() {
-
 
     private lateinit var addUserviewModel: AddUserViewModel
     private lateinit var addUserBinding: FragmentAddUserBinding
@@ -51,6 +52,10 @@ class AddUserFragment : Fragment() {
                     TextInputEditTextLastName.text.toString(),editTextID.text.toString(),
                     spinnerCargoRol.selectedItem.toString())
             }
+
+            imageViewUserPhoto.setOnClickListener {
+                addUserviewModel.takePicture()
+            }
         }
 
         val banAddUserObserver = Observer<Boolean>{banAddUser ->
@@ -62,6 +67,8 @@ class AddUserFragment : Fragment() {
         addUserviewModel.banAddUser.observe(viewLifecycleOwner,banAddUserObserver)
         return addUserBinding.root
     }
+
+
 
     private fun succes_msg(succesMsg: String?, view: LinearLayout) {
         Snackbar.make(view, succesMsg.toString(), Snackbar.LENGTH_INDEFINITE)

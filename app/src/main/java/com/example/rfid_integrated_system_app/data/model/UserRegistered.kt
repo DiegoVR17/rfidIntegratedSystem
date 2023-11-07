@@ -4,4 +4,6 @@ data class UserRegistered(
     var uid: String? = null,
     var email: String? = null,
     var cargoRol: String? = null,
+    var firstName:String? = null,
+    var lastName:String? = null
 )

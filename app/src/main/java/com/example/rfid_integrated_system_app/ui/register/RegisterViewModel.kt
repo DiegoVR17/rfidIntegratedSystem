@@ -22,8 +22,15 @@ class RegisterViewModel: ViewModel(){
 
     val _sucessMsg: MutableLiveData<String> = MutableLiveData()
     val sucessMsg: LiveData<String> = _sucessMsg
-    fun validateRegisterData(email: String, password: String, repPassword: String, cargoRol: String){
-        if ((email.isEmpty()) || (password.isEmpty()) || (repPassword.isEmpty())){
+    fun validateRegisterData(
+        email: String,
+        password: String,
+        repPassword: String,
+        cargoRol: String,
+        firstName: String,
+        lastName: String
+    ){
+        if ((email.isEmpty()) || (password.isEmpty()) || (repPassword.isEmpty()) || (firstName.isEmpty()) ||(lastName.isEmpty())){
             _errorMsg.value = "Debe escribir los datos de registro"
             banRegister.postValue(false)
         }
@@ -50,7 +57,7 @@ class RegisterViewModel: ViewModel(){
                     when(resourceRemote){
                         is ResourceRemote.Success -> {
                             val uid = result.data
-                            val userRegistered = UserRegistered(uid, email, cargoRol)
+                            val userRegistered = UserRegistered(uid, email, cargoRol,firstName,lastName)
                             createUser(userRegistered)
                             /*_sucessMsg.postValue("Usuario creado exitosamente")
                             banRegister.postValue(true)*/

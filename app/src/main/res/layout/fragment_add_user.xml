@@ -19,7 +19,12 @@
         android:id="@+id/TextInputLayoutFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewUserPhoto"
         app:helperText="@string/helper_text">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,7 +38,12 @@
         android:id="@+id/TextInputLayoutLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutFirstName"
         app:helperText="@string/helper_text">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -43,23 +53,37 @@
             android:hint="@string/lastName" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-   <!-- <TextView
-        android:id="@+id/textViewNameUser"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/ID"
-        android:textColor="@color/whitesmoke"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"/>-->
+        android:orientation="horizontal"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutLastName">
 
-    <EditText
-        android:id="@+id/editTextID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/ID"
-        android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ID"
+            android:textColorHint="@color/GreenU1"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_weight="1"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/editTextID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ID"
+            android:layout_weight="0.2"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,10 +95,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/CargoRol"
-            android:textColor="@color/whitesmoke"
+            android:textColorHint="@color/GreenU1"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textAlignment="center"/>
 
         <Spinner
             android:id="@+id/spinner_cargoRol"
@@ -95,7 +120,8 @@
         android:layout_height="wrap_content"
         android:text="@string/buttonAddUser"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/whitesmoke"/>
 
 
 </LinearLayout>

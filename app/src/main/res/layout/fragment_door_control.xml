@@ -9,26 +9,28 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="115dp"
-        android:src="@drawable/lock_unlock"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="64dp"
+        android:background="@color/whitesmoke"
+        android:src="@drawable/open_door"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/whitesmoke"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/switch_door"
-        android:layout_width="105dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="164dp"
         android:layout_marginTop="54dp"
         android:layout_marginEnd="164dp"
-        android:text="Switch"
+        android:text="@string/state_door"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:textColor="@color/GreenU1"
+        android:shadowColor="@color/GreenU1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.rfid_integrated_system_app.ui.add_user
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,8 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.rfid_integrated_system_app.data.ResourceRemote
 import com.example.rfid_integrated_system_app.data.UserAddRepository
 import com.example.rfid_integrated_system_app.data.model.User
-import com.example.rfid_integrated_system_app.data.model.UserRegistered
 import kotlinx.coroutines.launch
+import java.io.File
 
 class AddUserViewModel : ViewModel() {
 
@@ -76,6 +77,10 @@ class AddUserViewModel : ViewModel() {
                 }
             }
         }
+    }
+
+    fun takePicture() {
+
     }
 
 }

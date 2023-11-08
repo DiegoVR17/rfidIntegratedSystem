@@ -10,9 +10,10 @@
 
     <ImageView
         android:id="@+id/imageViewUserPhoto"
+        android:layout_marginTop="20dp"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/photo_user_icon"
+        android:src="@drawable/camara_icon"
         android:layout_gravity="center_horizontal"/>
 
     <com.google.android.material.textfield.TextInputLayout

@@ -1,5 +1,7 @@
 package com.example.rfid_integrated_system_app.ui.active_user
 
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,7 +63,11 @@ class ActiveUserAdapter (
                     if (userActive?.photo == null){
                         ImageViewPhotoUser.setImageResource(R.drawable.user_registered_icon)
                     }else{
-                        Picasso.get().load(userActive.photo).into(ImageViewPhotoUser)
+                        val decodedString = Base64.decode(userActive.photo, Base64.DEFAULT)
+                        val bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+                        ImageViewPhotoUser.setImageBitmap(bitmap)
+                        //Picasso.get().load(userActive.photo).into(ImageViewPhotoUser)
+                        //ImageViewPhotoUser.setImageResource(R.drawable.user_registered_icon)
                     }
 
                 }

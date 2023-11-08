@@ -1,22 +1,27 @@
 package com.example.rfid_integrated_system_app.ui.add_user
 
-import android.net.Uri
+import android.app.Activity
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
 import com.example.rfid_integrated_system_app.databinding.FragmentAddUserBinding
 import com.google.android.material.snackbar.Snackbar
 
+@Suppress("DEPRECATION")
 class AddUserFragment : Fragment() {
 
     private lateinit var addUserviewModel: AddUserViewModel
     private lateinit var addUserBinding: FragmentAddUserBinding
+    private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,11 +55,12 @@ class AddUserFragment : Fragment() {
             buttonAddUser.setOnClickListener {
                 addUserviewModel.validateAddUserData(TextInputEditTextFirstName.text.toString(),
                     TextInputEditTextLastName.text.toString(),editTextID.text.toString(),
-                    spinnerCargoRol.selectedItem.toString())
+                    spinnerCargoRol.selectedItem.toString(),imageViewUserPhoto.drawable)
             }
 
             imageViewUserPhoto.setOnClickListener {
-                addUserviewModel.takePicture()
+                //addUserviewModel.dispatchTakePictureIntent()
+                dispatchTakePictureIntent()
             }
         }
 
@@ -80,6 +86,22 @@ class AddUserFragment : Fragment() {
         Snackbar.make(view, errorMsg.toString(), Snackbar.LENGTH_INDEFINITE)
             .setAction("Continuar"){}
             .show()
+    }
+
+    private fun dispatchTakePictureIntent() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        try {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        } catch (e: ActivityNotFoundException) {
+            // Manejar la excepción si la cámara no está disponible en el dispositivo
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            addUserBinding.imageViewUserPhoto.setImageBitmap(imageBitmap)
+        }
     }
 
 

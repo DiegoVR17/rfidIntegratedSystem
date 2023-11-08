@@ -33,11 +33,11 @@ class RegisteredUserFragment : Fragment() {
             error_msg(msg,registeredUserBinding.root)
         }
 
-        registeredUserViewModel.succesDeleteMsg.observe(viewLifecycleOwner){msg ->
+       registeredUserViewModel.succesDeleteMsg.observe(viewLifecycleOwner){msg ->
             succesDelete_msg(msg,registeredUserBinding.root)
         }
 
-        registeredUserViewModel._succesDeleteMsg.observe(viewLifecycleOwner){
+        registeredUserViewModel.userRegisteredDelete.observe(viewLifecycleOwner){
             registeredUserViewModel.loadRegisteredUsers()
         }
 

@@ -1,6 +1,9 @@
 package com.example.rfid_integrated_system_app.ui.add_user
 
-import android.net.Uri
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.util.Base64
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +12,7 @@ import com.example.rfid_integrated_system_app.data.ResourceRemote
 import com.example.rfid_integrated_system_app.data.UserAddRepository
 import com.example.rfid_integrated_system_app.data.model.User
 import kotlinx.coroutines.launch
-import java.io.File
+import java.io.ByteArrayOutputStream
 
 class AddUserViewModel : ViewModel() {
 
@@ -49,11 +52,33 @@ class AddUserViewModel : ViewModel() {
             }
         }
     }
-    fun validateAddUserData(firstName: String, lastName: String, id: String, positionRole: String) {
+    fun validateAddUserData(
+        firstName: String,
+        lastName: String,
+        id: String,
+        positionRole: String,
+        drawable: Drawable
+    ) {
         if (firstName.isEmpty() && lastName.isEmpty()){
             _errorMsg.value = "Debe escribir los datos de registro"
         }else{
-            val user = User(firstName = firstName, lastName = lastName, id = id, positionRole = positionRole)
+           /* val bitmap = (drawable as BitmapDrawable).bitmap
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            val encodedImage = Base64.encodeToString(byteArray, Base64.DEFAULT)*/
+
+            val bitmap = (drawable as BitmapDrawable).bitmap
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 20, stream)
+            val byteArray = stream.toByteArray()
+            val encodedImage = Base64.encodeToString(byteArray, Base64.DEFAULT)
+
+
+            val user = User(firstName = firstName, lastName = lastName, id = id, positionRole = positionRole, photo = encodedImage)
+
+
+            //val user = User(firstName = firstName, lastName = lastName, id = id, positionRole = positionRole)
             viewModelScope.launch {
                 var result =  userAddRepository.createUser(user,id)
                 result.let { resourceRemote ->
@@ -79,8 +104,6 @@ class AddUserViewModel : ViewModel() {
         }
     }
 
-    fun takePicture() {
 
-    }
 
 }

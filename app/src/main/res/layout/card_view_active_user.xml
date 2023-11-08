@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user_active"
-            android:background="@color/GreenU1"/>
+            android:background="@drawable/rounded_background" />/>
 
     <TextView
         android:id="@+id/textViewNameUser"

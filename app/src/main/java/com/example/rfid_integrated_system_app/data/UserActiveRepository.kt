@@ -3,6 +3,7 @@ package com.example.rfid_integrated_system_app.data
 import android.util.Log
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
@@ -12,13 +13,14 @@ import kotlinx.coroutines.tasks.await
 class UserActiveRepository {
 
     private var db = Firebase.firestore
+    private var auth = FirebaseAuth.getInstance()
 
     suspend fun loadActiveUsers() : ResourceRemote<QuerySnapshot?> {
         return try {
             val result = db.collection("users_active").orderBy("date").get().await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)

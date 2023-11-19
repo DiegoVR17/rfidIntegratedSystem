@@ -59,17 +59,8 @@ class ActiveUserAdapter (
                     sdf.timeZone = TimeZone.getTimeZone("GMT")
                     val date = sdf.format(Date(userActive?.date!!.toLong()*1000))
                     textViewDate.text = date
-                    textViewLate.text = userActive?.late.toString()
-                    if (userActive?.photo == null){
-                        ImageViewPhotoUser.setImageResource(R.drawable.user_registered_icon)
-                    }else{
-                        val decodedString = Base64.decode(userActive.photo, Base64.DEFAULT)
-                        val bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
-                        ImageViewPhotoUser.setImageBitmap(bitmap)
-                        //Picasso.get().load(userActive.photo).into(ImageViewPhotoUser)
-                        //ImageViewPhotoUser.setImageResource(R.drawable.user_registered_icon)
-                    }
-
+                    textViewLateNoLate.text = userActive?.late.toString()
+                    ImageViewPhotoUser.setImageResource(R.drawable.user_active_icon)
                 }
             }
         }

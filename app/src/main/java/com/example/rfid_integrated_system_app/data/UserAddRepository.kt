@@ -22,7 +22,7 @@ class UserAddRepository {
             //result.user?.isEmailVerified
             ResourceRemote.Success(data = user.id)
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)
@@ -40,7 +40,7 @@ class UserAddRepository {
             val result = db.collection("users_system").get().await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)
@@ -57,7 +57,7 @@ class UserAddRepository {
             val result = user?.id?.let { db.collection("users_system").document(it).delete().await() }
             ResourceRemote.Success(data = user?.id)
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)
@@ -74,7 +74,7 @@ class UserAddRepository {
             val result = db.collection("id_reader").orderBy("date",Query.Direction.DESCENDING).get().await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)

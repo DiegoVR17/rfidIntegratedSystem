@@ -62,15 +62,10 @@ class AddUserViewModel : ViewModel() {
         if (firstName.isEmpty() && lastName.isEmpty()){
             _errorMsg.value = "Debe escribir los datos de registro"
         }else{
-           /* val bitmap = (drawable as BitmapDrawable).bitmap
-            val stream = ByteArrayOutputStream()
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            val byteArray = stream.toByteArray()
-            val encodedImage = Base64.encodeToString(byteArray, Base64.DEFAULT)*/
-
             val bitmap = (drawable as BitmapDrawable).bitmap
             val stream = ByteArrayOutputStream()
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 20, stream)
+            //bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
             val byteArray = stream.toByteArray()
             val encodedImage = Base64.encodeToString(byteArray, Base64.DEFAULT)
 

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1038610850150",
+    "firebase_url": "https://rfidintegratedsystemapp-default-rtdb.firebaseio.com",
     "project_id": "rfidintegratedsystemapp",
     "storage_bucket": "rfidintegratedsystemapp.appspot.com"
   },

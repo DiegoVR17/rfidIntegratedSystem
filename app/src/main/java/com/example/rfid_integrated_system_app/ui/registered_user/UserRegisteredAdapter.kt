@@ -49,8 +49,7 @@ class UserRegisteredAdapter(
 
         fun bind(user: User?){
             with(binding){
-                textViewFirstName.text = user?.firstName
-                textViewLastName.text = user?.lastName
+                textViewFirstName.text = user?.firstName + user?.lastName
                 textViewPosition.text = user?.positionRole
                 if (user?.photo == null){
                     ImageViewPhotoUser.setImageResource(R.drawable.user_registered_icon)

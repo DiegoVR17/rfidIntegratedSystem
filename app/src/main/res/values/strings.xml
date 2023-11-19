@@ -6,8 +6,8 @@
     <string name="buttonClear">Resetear</string>
     <string name="buttonUpdate">Actualizar</string>
     <string name="nameUser">nameUser</string>
-    <string name="ID">ID</string>
-    <string name="CargoRol">Cargo o rol\n</string>
+    <string name="ID">ID:</string>
+    <string name="CargoRol">Cargo o rol:</string>
     <string name="Login">Ingresar</string>
     <string name="password">Digite su contraseña</string>
     <string name="passwordRep">Repita su contraseña</string>
@@ -37,7 +37,10 @@
     <string name="add_user">añadir</string>
     <string name="buttonAddUser">Añadir usuario</string>
     <string name="helper_text">*Campo Obligatorio</string>
-    <string name="date">Fecha</string>
+    <string name="date">Fecha:</string>
     <string name="late">Entrada</string>
     <string name="state_door">ON/OFF - PUERTA</string>
+    <string name="DetailUser">Detalle de usuario</string>
+    <string name="firstNameDetail">Nombre de usuario:</string>
+    <string name="LateNoLate">Entrada tarde:</string>
 </resources>

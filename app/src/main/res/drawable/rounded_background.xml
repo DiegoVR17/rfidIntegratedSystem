@@ -1,4 +1,3 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="25dp" /> <!-- Ajusta el radio de los bordes según tus necesidades -->
-    <solid android:color="@color/GreenU1" /> <!-- Color de fondo del ImageView -->
+    <corners android:radius="10dp" /> <!-- Ajusta el radio de los bordes según tus necesidades -->/> <!-- Color de fondo del ImageView -->
 </shape>

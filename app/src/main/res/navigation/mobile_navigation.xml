@@ -9,6 +9,9 @@
         android:name="com.example.rfid_integrated_system_app.ui.active_user.ActiveUserFragment"
         android:label="@string/active_user"
         tools:layout="@layout/fragment_active_user" >
+        <action
+            android:id="@+id/action_navigation_active_user_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/navigation_registered_user"
@@ -18,6 +21,9 @@
         <action
             android:id="@+id/action_navigation_registered_user_to_navigation_add_user"
             app:destination="@id/navigation_add_user" />
+        <action
+            android:id="@+id/action_navigation_registered_user_to_user_DetailFragment"
+            app:destination="@id/user_DetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_door_control"
@@ -29,4 +35,29 @@
         android:name="com.example.rfid_integrated_system_app.ui.add_user.AddUserFragment"
         android:label="@string/buttonAddUser"
         tools:layout="@layout/fragment_add_user" />
+    <fragment
+        android:id="@+id/user_DetailFragment"
+        android:name="com.example.rfid_integrated_system_app.ui.user_detail.UserDetailFragment"
+        android:label="@string/DetailUser" >
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument
+            android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="position"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="photo"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.rfid_integrated_system_app.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>

@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/imageViewUserPhoto"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/camara_icon"
@@ -55,12 +55,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutLastName">
@@ -68,20 +68,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/ID"
-            android:textColorHint="@color/GreenU1"
-            android:textStyle="bold"
-            android:textSize="15dp"
             android:layout_weight="1"
-            android:textAlignment="center" />
+            android:hint="@string/ID"
+            android:textAlignment="center"
+            android:textColorHint="@color/GreenU1"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/ID"
+            android:layout_marginTop="5dp"
             android:layout_weight="0.2"
-            android:layout_marginTop="5dp"/>
+            android:hint="@string/ID" />
 
     </LinearLayout>
 

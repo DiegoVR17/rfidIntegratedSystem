@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.registered_user.RegisteredUserFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_signOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logout_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/GreenU1"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewUserActive"
         android:layout_width="409dp"

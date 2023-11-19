@@ -12,11 +12,14 @@ import com.example.rfid_integrated_system_app.ui.navigation.NavigationActivity
 import com.example.rfid_integrated_system_app.ui.register.RegisterActivity
 import com.example.rfid_integrated_system_app.databinding.ActivityLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginBinding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
+    private val currentUser = FirebaseAuth.getInstance().currentUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -26,11 +29,13 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
+        if (currentUser != null){
+            goToRegisterActivity()
+        }
+
         val banLoginObserver = Observer<Boolean>{banLogin ->
             if (banLogin){
-                val intent = Intent(this, NavigationActivity::class.java)
-                startActivity(intent)
-                finish()
+                goToRegisterActivity()
             }
         }
         loginViewModel.banLogin.observe(this,banLoginObserver)
@@ -58,6 +63,12 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun goToRegisterActivity() {
+        val intent = Intent(this, NavigationActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun error_msg(errorMsg: String?, view: ConstraintLayout) {

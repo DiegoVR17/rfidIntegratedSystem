@@ -13,69 +13,111 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/thistle">
+        android:background="#424242">
 
         <ImageView
             android:id="@+id/ImageViewPhotoUser"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/user_active"
-            android:background="@drawable/rounded_background" />/>
+            app:srcCompat="@drawable/user_active_icon"
+            android:background="@drawable/rounded_background" />
 
     <TextView
         android:id="@+id/textViewNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="121dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
         android:text="@string/nameUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ImageViewPhotoUser"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/black"
+        android:textColor="@color/GreenU1"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal" />
 
 
-        <TextView
-            android:id="@+id/textViewDate"
+        <LinearLayout
+            android:id="@+id/layoutDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="116dp"
-            android:text="@string/date"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="50dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ImageViewPhotoUser"
-            app:layout_constraintTop_toBottomOf="@+id/textViewNameUser"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="12dp"
-            android:gravity="center_horizontal"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/textViewLate"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/date"
+                android:textAlignment="center"
+                android:textColorHint="@color/GreenU1"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/date"
+                android:textAlignment="center"
+                android:textColorHint="@color/whitesmoke"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLateNoLate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="116dp"
-            android:text="@string/late"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ImageViewPhotoUser"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDate"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="12dp"
-            android:gravity="center_horizontal"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/LateNoLate"
+                android:textAlignment="center"
+                android:textColorHint="@color/GreenU1"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLateNoLate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/LateNoLate"
+                android:textAlignment="center"
+                android:textColorHint="@color/whitesmoke"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -12,10 +12,9 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="64dp"
-        android:background="@color/whitesmoke"
-        android:src="@drawable/open_door"
+        android:src="@drawable/icon_door"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,5 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         android:textColor="@color/GreenU1"
+        android:textStyle="bold"
+        android:textSize="30dp"
         android:shadowColor="@color/GreenU1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

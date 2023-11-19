@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rfid_integrated_system_app.R
 import com.example.rfid_integrated_system_app.data.model.User
 import com.example.rfid_integrated_system_app.databinding.FragmentRegisteredUserBinding
+import com.example.rfid_integrated_system_app.ui.user_detail.UserDetailFragment
 import com.google.android.material.snackbar.Snackbar
 
 class RegisteredUserFragment : Fragment() {
@@ -33,7 +36,7 @@ class RegisteredUserFragment : Fragment() {
             error_msg(msg,registeredUserBinding.root)
         }
 
-       registeredUserViewModel.succesDeleteMsg.observe(viewLifecycleOwner){msg ->
+      registeredUserViewModel.succesDeleteMsg.observe(viewLifecycleOwner){msg ->
             succesDelete_msg(msg,registeredUserBinding.root)
         }
 
@@ -68,8 +71,10 @@ class RegisteredUserFragment : Fragment() {
         registeredUserViewModel.delete(userRegistered)
     }
 
-    private fun onRegisteredUserItemClicked(userRegistered: com.example.rfid_integrated_system_app.data.model.User?) {
-
+    private fun onRegisteredUserItemClicked(userRegistered: User?) {
+        findNavController().navigate(RegisteredUserFragmentDirections.actionNavigationRegisteredUserToUserDetailFragment(firstName = userRegistered?.firstName.toString(),
+            lastName = userRegistered?.lastName.toString(), position = userRegistered?.positionRole.toString(),
+            id = userRegistered?.id.toString(), photo = userRegistered?.photo.toString()))
     }
 
     private fun error_msg(errorMsg: String?, view: ConstraintLayout) {

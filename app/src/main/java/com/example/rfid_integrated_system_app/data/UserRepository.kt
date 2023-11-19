@@ -67,7 +67,7 @@ class UserRepository {
             //result.user?.isEmailVerified
             ResourceRemote.Success(data = userRegistered.uid)
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)

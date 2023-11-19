@@ -27,18 +27,19 @@ class UserRegisteredViewModel: ViewModel()  {
     private val _userRegisteredDelete: MutableLiveData<Boolean> = MutableLiveData()
     val userRegisteredDelete : LiveData<Boolean> = _userRegisteredDelete
 
+
+
     fun loadRegisteredUsers() {
-        userRegisteredListLocal.clear()
         viewModelScope.launch {
             val result = userAddRepository.loadRegisteredUsers()
             result.let { resourceRemote ->
                 when(resourceRemote){
                     is ResourceRemote.Success -> {
+                        userRegisteredListLocal.clear()
                         result.data?.documents?.forEach{ document ->
                             val userRegistered = document.toObject<User>()
                             userRegisteredListLocal.add(userRegistered)
                         }
-
                         _userRegisteredList.postValue(userRegisteredListLocal)
                     }
                     is ResourceRemote.Error -> {
@@ -77,4 +78,5 @@ class UserRegisteredViewModel: ViewModel()  {
 
         }
     }
+
 }

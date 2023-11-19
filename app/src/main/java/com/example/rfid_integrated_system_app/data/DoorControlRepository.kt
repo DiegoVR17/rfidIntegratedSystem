@@ -19,7 +19,7 @@ class DoorControlRepository {
                 .set(estadoSwitch).await()
             ResourceRemote.Success(data = "ok")
         } catch (e: FirebaseFirestoreException){
-            Log.e("FirebaseAuthException",e.localizedMessage)
+            Log.e("FirebaseFirestoreException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
             Log.e("FirebaseNetworkException",e.localizedMessage)
@@ -29,6 +29,5 @@ class DoorControlRepository {
             Log.e("FirebaseException",e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
         }
-
     }
 }

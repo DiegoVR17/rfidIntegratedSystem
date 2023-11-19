@@ -13,8 +13,6 @@ import kotlinx.coroutines.tasks.await
 class UserActiveRepository {
 
     private var db = Firebase.firestore
-    private var auth = FirebaseAuth.getInstance()
-
     suspend fun loadActiveUsers() : ResourceRemote<QuerySnapshot?> {
         return try {
             val result = db.collection("users_active").orderBy("date").get().await()

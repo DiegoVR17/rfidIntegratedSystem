@@ -22,7 +22,6 @@ class UserDetailFragment : Fragment() {
         userDetailBinding = FragmentUserDetailBinding.inflate(inflater,container,false)
         userDetailBinding.apply{
             textViewFirstNameDetail.text = args.firstName + args.lastName
-            //textViewLastNameDetail.text = args.lastName
             textViewPositionDetail.text= args.position
             textViewIDDetail.text = args.id
             val decodedString = Base64.decode(args.photo, Base64.DEFAULT)
